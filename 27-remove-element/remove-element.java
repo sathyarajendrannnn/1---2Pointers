@@ -1,25 +1,14 @@
 class Solution {
     public int removeElement(int[] nums, int val) {
-        int i=0,j=nums.length-1,k=0;
-        while(i<=j){
-            if(nums[i]!=val){
-                i++;
-                k++;
-            }
-            else{
-                if(nums[j]!=val){
-                    int temp=nums[i];
-                    nums[i]=nums[j];
-                    nums[j]=temp;
-                    j--;
-                    k++;
-                    i++;
-                }
-                else{
-                    j--;
-                }
+        int index = 0; // position to place non-val elements
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[index] = nums[i];
+                index++;
             }
         }
-        return k;
+        
+        return index;
     }
 }
